@@ -1,3 +1,4 @@
+import AgencyBehind from '../AgencyBehind';
 import Navbanner from '../Navbanner';
 import Header from './Header';
 
@@ -6,6 +7,7 @@ const Home = () => {
         <div className=''>
             <Header/>
             <Navbanner/>
+            <AgencyBehind/>
         </div>
     );
 };
