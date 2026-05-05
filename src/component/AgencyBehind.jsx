@@ -28,7 +28,7 @@ const AgencyBehind = () => {
     ];
 
     return (
-        <div ref={scrollRef} className="pt-12 mb-[100px]">
+        <div ref={scrollRef} className="pt-12 mb-[100px] px-4">
             <div className="flex items-center gap-10">
 
                 <h1 className="shrink-0 font-normal text-[16px] text-black">
@@ -51,7 +51,7 @@ const AgencyBehind = () => {
                  
                     <div
                         ref={trackRef}
-                        className="logo-track flex items-center gap-[60px] w-max whitespace-nowrap"
+                        className="logo-track flex items-center gap-[140px] w-max whitespace-nowrap"
                     >
                       
                         {[...logos, ...logos, ...logos].map((logo, index) => (

@@ -258,7 +258,7 @@ const Navbanner = () => {
                             {link.hasPlus && <FaPlus size={12} />}
                         </button>
                     ))}
-                    <button className="mt-4 bg-[#2dd4bf] text-black px-4 py-2 rounded-full font-medium">
+                    <button className="mt-4 bg-white text-black px-4 py-2 rounded-full font-medium">
                         Get in touch <MdOutlineArrowOutward className="inline ml-1" />
                     </button>
                 </div>
