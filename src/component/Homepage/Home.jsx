@@ -2,6 +2,7 @@ import AgencyBehind from '../AgencyBehind';
 import DrivingDemand from '../Driving-Demand';
 import Footer from '../Footer';
 import Navbanner from '../Navbanner';
+import Ourservices from '../Ourservices';
 import Header from './Header';
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
             <Navbanner/>
             <AgencyBehind/>
             <DrivingDemand/>
+            <Ourservices/>
             <Footer/>
         </div>
     );
