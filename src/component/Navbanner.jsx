@@ -3,7 +3,6 @@ import { gsap } from "gsap";
 import { FaBars, FaTimes, FaPlus } from "react-icons/fa";
 import { MdOutlineArrowOutward } from "react-icons/md";
 
-// ✅ একই ইমেজ হেডিং এবং ব্যাকগ্রাউন্ড উভয় জায়গায় ব্যবহার হবে
 const allImages = [
     {
         url: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop",
