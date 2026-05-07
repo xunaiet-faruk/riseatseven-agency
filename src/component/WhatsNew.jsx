@@ -47,7 +47,7 @@ const WhatsNew = () => {
     return (
         <>
             <section className="py-20 overflow-hidden container mx-auto px-4 md:px-0 font-sans">
-                <div className="flex justify-between items-end ">
+                <div className="flex justify-between items-end mb-12">
                     <h2 className="flex items-center gap-4 text-5xl md:text-[100px] font-500 tracking-tighter">
                         <span>What’s</span>
                         <img
@@ -61,12 +61,8 @@ const WhatsNew = () => {
                     <button className="group inline-flex items-center gap-2 px-4 xl:px-6 py-2 xl:py-3 rounded-3xl font-medium bg-white text-black hover:rounded-lg transition-all text-sm xl:text-base border border-gray-200 shadow-sm">
                         Explore More Thoughts <MdOutlineArrowOutward className="text-xs transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                     </button>
-
                 </div>
 
-                <div className="container mx-auto px-4 md:px-0 py-12">
-                    <div className="border-b-[1px] border-gray-900 w-full opacity-20"></div>
-                </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {cards.map((card, index) => (
                         <div
@@ -121,7 +117,7 @@ const WhatsNew = () => {
                                     )}
                                 </AnimatePresence>
 
-                                <span className="absolute top-4 left-5 bg-white/30 backdrop-blur-xl text-white px-3 py-1 rounded-full text-[12px] font-medium z-20">
+                                <span className="absolute top-3 left-5 bg-white/30 backdrop-blur-xl text-white px-3 py-1 rounded-full text-[12px] font-medium z-20">
                                     {card.category}
                                 </span>
                             </div>

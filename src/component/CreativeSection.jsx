@@ -82,7 +82,7 @@ const CreativeSection = () => {
     }, []);
 
     return (
-        <section ref={containerRef} className="bg-[#f3f3f3] py-10 overflow-hidden border-b border-gray-300">
+        <section ref={containerRef} className=" overflow-hidden ">
             <div className="flex whitespace-nowrap">
                 <div ref={marqueeRef} className="flex items-center gap-4 md:gap-8">
                     {marqueeItems.map((item, index) => (

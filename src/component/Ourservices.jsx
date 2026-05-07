@@ -12,7 +12,7 @@ const Ourservices = () => {
     ];
 
     return (
-        <section className="bg-[#f3f3f3] py-20 px-6 md:px-10 font-sans text-[#1a1a1a]">
+        <section className=" py-20 px-6 md:px-10 font-sans text-[#1a1a1a]">
             <div className="container mx-auto">
                 {/* Header Section */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 border-b border-gray-300 pb-8 gap-6">
