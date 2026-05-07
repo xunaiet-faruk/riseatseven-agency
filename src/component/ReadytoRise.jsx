@@ -18,16 +18,25 @@ const ReadytoRise = () => {
             .split("")
             .map(
                 (char) =>
-                    `<span class="char" style="display:inline-block;">${char === " " ? "&nbsp;" : char
-                    }</span>`
+                    `<span 
+                        class="char" 
+                        style="
+                            display:inline-block;
+                            margin-right:-0.05em;
+                        "
+                    >
+                        ${char === " " ? "&nbsp;" : char}
+                    </span>`
             )
             .join("");
 
         const chars = element.querySelectorAll(".char");
 
-        // SVG path (snake curve)
-        const path = "M0,100 C200,-100 400,300 600,100 800,-100 1000,200 1200,100";
+        // snake curve path
+        const path =
+            "M0,100 C200,-100 400,300 600,100 800,-100 1000,200 1200,100";
 
+        // timeline
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: sectionRef.current,
@@ -49,13 +58,13 @@ const ReadytoRise = () => {
                         path: path,
                         align: false,
                         autoRotate: false,
-                        start: 1, // right থেকে শুরু
-                        end: 0,  // left এ শেষ
+                        start: 1, // right side
+                        end: 0,   // left side
                     },
                     duration: 1,
-                    ease: "power3.out",
+                    ease: "none", // reverse smooth
                 },
-                i * 0.05 // stagger timing
+                i * 0.05
             );
         });
 
@@ -75,11 +84,13 @@ const ReadytoRise = () => {
                 overflow: "hidden",
             }}
         >
-            <h1 className="mb-[40vh] font-500 text-[140px]"
+            <h1
+                className="mb-[40vh] font-500 text-[256px]"
                 ref={textRef}
                 style={{
-             
                     whiteSpace: "nowrap",
+                    letterSpacing: "-0.04em",
+                    lineHeight: "0.9",
                 }}
             ></h1>
         </section>

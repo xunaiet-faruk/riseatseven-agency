@@ -1,6 +1,7 @@
 import AgencyBehind from '../AgencyBehind';
 import CreativeSection from '../CreativeSection';
 import DrivingDemand from '../Driving-Demand';
+import FeaturedWork from '../FeaturedWork';
 import Footer from '../Footer';
 import LegacySlideCard from '../LegacySlideCard';
 import Navbanner from '../Navbanner';
@@ -16,6 +17,7 @@ const Home = () => {
             <Navbanner/>
             <AgencyBehind/>
             <DrivingDemand/>
+            <FeaturedWork />
             <Ourservices/>
             <CreativeSection/>
             <LegacySlideCard/>
