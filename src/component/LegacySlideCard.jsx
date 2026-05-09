@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -10,103 +10,141 @@ const cardsData = [
     { id: 3, title: 'Visionaries', color: '#FFFFFF', image: 'https://rise-atseven.transforms.svdcdn.com/production/images/Screenshot-2025-06-23-at-23.15.19.png?w=2000&h=2000&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1750847626&s=211fe5c665b93a978c596f9070aed44c', details: 'People ask us why we are called Rise at Seven? Ever heard the saying Early Bird catches the worm? Google is moving fast, but humans are moving faster. We chase consumers, not algorithms. We’ve created a service which takes ideas to result within 60 minutes.', rotation: 5 },
 ];
 
+const extendedCards = [...cardsData, ...cardsData, ...cardsData];
+
 const StackedCards = () => {
     const containerRef = useRef(null);
     const cardsRef = useRef([]);
+    const scrollRef = useRef(null);
+    const [progress, setProgress] = useState(0);
+    const [isLarge, setIsLarge] = useState(window.innerWidth >= 1024);
 
     useEffect(() => {
-        const cards = cardsRef.current;
-        gsap.set(cards, {
-            xPercent: 0,
-            yPercent: 0,
-            scale: (i) => (i === 0 ? 0.96 : 1),
-            rotation: (i) => cardsData[i].rotation,
-            transformOrigin: "center center",
-        });
+        const handleResize = () => setIsLarge(window.innerWidth >= 1024);
+        window.addEventListener('resize', handleResize);
 
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top top",
-                end: "+=500%",
-                pin: true,
-                pinSpacing: false,
-                scrub: 1.5,
-            }
-        });
+        if (isLarge) {
+            const cards = cardsRef.current;
+            gsap.set(cards, {
+                scale: (i) => (i === 0 ? 0.96 : 1),
+                rotation: (i) => cardsData[i]?.rotation || 0,
+                transformOrigin: "center center",
+            });
 
-        cards.forEach((card, index) => {
-            tl.to(card, {
-                x: 250,
-                yPercent: -180,
-                rotation: -190,
-                scale: 1,
-                duration: 2,
-                ease: "power2.inOut",
-            }, index === 0 ? `card-${index}` : "-=1.4");
-        });
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top top",
+                    end: "+=500%",
+                    pin: true,
+                    pinSpacing: false,
+                    scrub: 1.5,
+                }
+            });
 
+            cards.forEach((card, index) => {
+                if (card) {
+                    tl.to(card, {
+                        x: 250, yPercent: -180, rotation: -190, scale: 1,
+                        duration: 2, ease: "power2.inOut",
+                    }, index === 0 ? `card-${index}` : "-=1.4");
+                }
+            });
+        }
         return () => {
+            window.removeEventListener('resize', handleResize);
             ScrollTrigger.getAll().forEach(t => t.kill());
         };
-    }, []);
+    }, [isLarge]);
+
+    const handleScroll = () => {
+        if (!scrollRef.current) return;
+        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+        const oneThird = scrollWidth / 3;
+
+        if (scrollLeft <= 5) {
+            scrollRef.current.scrollLeft = oneThird;
+        } else if (scrollLeft + clientWidth >= scrollWidth - 5) {
+            scrollRef.current.scrollLeft = oneThird;
+        }
+
+        const currentScrollInSet = scrollLeft % oneThird;
+        const maxScrollInSet = oneThird - clientWidth;
+        const scrolled = (currentScrollInSet / maxScrollInSet) * 100;
+        setProgress(Math.min(Math.max(scrolled, 0), 100));
+    };
+
+    useEffect(() => {
+        if (!isLarge && scrollRef.current) {
+            scrollRef.current.scrollLeft = scrollRef.current.scrollWidth / 3;
+        }
+    }, [isLarge]);
 
     return (
-       <>
-            <div className="mt-20">
+        <div className=" overflow-x-hidden">
+            <div className="pt-20">
                 <h1 className="text-[16px] font-bold tracking-widest text-center text-black uppercase">
                     Legacy In The Making
                 </h1>
             </div>
-       
-            <section className="relative w-full">
 
-            
-                <div
-                    ref={containerRef}
-                    className="relative w-full h-screen overflow-hidden flex flex-col items-center"
-                >
-
-
-                    <div className="relative w-full h-full flex items-center justify-center -mt-12">
-                        {cardsData.map((card, index) => {
-                            const isFirstCard = index === 0;
-                            const textColor = isFirstCard ? 'text-white' : 'text-black';
-                            const detailOpacity = isFirstCard ? 'text-white/90' : 'text-black/80';
-
-                            return (
+            {!isLarge ? (
+                <section className="relative w-full py-10">
+                    <div
+                        ref={scrollRef}
+                        onScroll={handleScroll}
+                        className="flex overflow-x-auto snap-x snap-mandatory no-scrollbar pb-10 scroll-smooth"
+                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                    >
+                        {extendedCards.map((card, index) => (
+                            <div
+                                key={`${card.id}-${index}`}
+                                // Small: 100% width, Medium: 80% width (যাতে ১.৫টি কার্ড দেখা যায়)
+                                className="snap-center shrink-0 flex justify-center px-2 w-[100vw] md:w-[80vw]"
+                            >
+                                <div
+                                    style={{ backgroundColor: card.color }}
+                                    className={`w-[90%] md:w-full h-[550px] md:h-[650px] rounded-[40px] shadow-2xl p-10 flex flex-col items-center border border-white/10 ${card.color === '#000000' ? 'text-white' : 'text-black'}`}
+                                >
+                                    <img className='w-[160px] md:w-[220px] rounded-2xl mb-6' src={card.image} alt={card.title} />
+                                    <h2 className="text-[40px] md:text-[55px] font-500 mb-4 tracking-tighter text-center leading-none">{card.title}</h2>
+                                    <p className="font-500 text-center text-sm md:text-[16px] opacity-90">{card.details}</p>
+                                    {card.details2 && <p className="pt-4 md:pt-6 font-500 text-center text-sm md:text-[16px] opacity-90">{card.details2}</p>}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    {/* Progress Bar */}
+                    <div className="max-w-[150px] md:max-w-[200px] mx-auto h-[2px] bg-gray-200 rounded-full mt-4 overflow-hidden relative">
+                        <div
+                            className="absolute left-0 top-0 h-full bg-black transition-all duration-150 ease-out"
+                            style={{ width: `${progress}%` }}
+                        />
+                    </div>
+                </section>
+            ) : (
+                <section className="relative w-full">
+                    <div ref={containerRef} className="relative w-full h-screen overflow-hidden flex flex-col items-center">
+                        <div className="relative w-full h-full flex items-center justify-center -mt-12">
+                            {cardsData.map((card, index) => (
                                 <div
                                     key={card.id}
                                     ref={(el) => (cardsRef.current[index] = el)}
-                                    style={{
-                                        backgroundColor: card.color,
-                                        zIndex: cardsData.length - index + 10,
-                                    }}
-                                    className={`absolute w-[320px] h-[460px] md:w-[620px] md:h-[620px] rounded-[40px] shadow-2xl p-10 flex flex-col items-center border border-white/10 ${textColor}`}
+                                    style={{ backgroundColor: card.color, zIndex: cardsData.length - index + 10 }}
+                                    className={`absolute w-[320px] h-[460px] md:w-[620px] md:h-[620px] rounded-[40px] shadow-2xl p-10 flex flex-col items-center border border-white/10 ${card.color === '#000000' ? 'text-white' : 'text-black'}`}
                                 >
-                                    <div>
-                                        <img className='w-[200px] rounded-2xl' src={card.image} alt={card.title} />
-                                    </div>
+                                    <img className='w-[200px] rounded-2xl mb-4' src={card.image} alt={card.title} />
                                     <h2 className="text-[60px] font-500 mb-4 tracking-tighter text-center leading-none">{card.title}</h2>
-                                    <p className={`${detailOpacity} font-500 text-center text-sm md:text-[16px]`}>
-                                        {card.details}
-                                    </p>
-                                    {card.details2 && (
-                                        <p className={`${detailOpacity} pt-6 font-500 text-center text-sm md:text-[16px]`}>
-                                            {card.details2}
-                                        </p>
-                                    )}
+                                    <p className="font-500 text-center text-sm md:text-[16px] opacity-90">{card.details}</p>
+                                    {card.details2 && <p className="pt-6 font-500 text-center text-sm md:text-[16px] opacity-90">{card.details2}</p>}
                                 </div>
-                            );
-                        })}
+                            ))}
+                        </div>
                     </div>
-                </div>
-
-                {/* স্ক্রলিং এরিয়া: এই সেকশন পার হয়ে গেলে টাইটেল আর দেখা যাবে না */}
-                <div style={{ height: "300vh" }}></div>
-            </section>
-       
-       </>
+                    <div style={{ height: "300vh" }}></div>
+                </section>
+            )}
+        </div>
     );
 };
 
