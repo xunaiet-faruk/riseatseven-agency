@@ -84,7 +84,7 @@ const ReadytoRise = () => {
         >
             <h1
                 ref={textRef}
-                className="mb-[40vh] font-500 text-[256px]"
+                className="mb-[40vh] font-medium text-[256px]"
                 style={{
                     whiteSpace: "nowrap",
                     letterSpacing: "-0.04em",

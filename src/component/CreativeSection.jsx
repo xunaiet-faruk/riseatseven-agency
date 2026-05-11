@@ -88,7 +88,7 @@ const CreativeSection = () => {
                     {marqueeItems.map((item, index) => (
                         <div key={index} className="flex items-center gap-4 md:gap-8">
                             {item.type === 'text' ? (
-                                <h2 className="text-[75px] lg:text-[220px] md:text-[75px] font-500 tracking-tighter text-[#1a1a1a]">
+                                <h2 className="text-[75px] lg:text-[220px] md:text-[75px] font-medium tracking-tighter text-[#1a1a1a]">
                                     {item.content}
                                 </h2>
                             ) : (

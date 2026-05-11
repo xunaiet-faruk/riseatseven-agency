@@ -19,7 +19,7 @@ const Ourservices = () => {
                     {/* Heading - Small: 2 lines, Medium/Large: row layout */}
                     <div className="w-full sm:w-auto">
                         {/* Small device heading - 2 lines */}
-                        <h2 className="block sm:hidden text-6xl font-500 tracking-tight">
+                        <h2 className="block sm:hidden text-6xl font-medium tracking-tight">
                             Our
                             <span className="inline-block w-16 h-16 rounded-2xl ml-2 overflow-hidden shadow-lg align-middle mx-1">
                                 <img
@@ -32,7 +32,7 @@ const Ourservices = () => {
                         </h2>
 
                         {/* Medium & Large device heading - row layout */}
-                        <h2 className="hidden  sm:flex items-center gap-2 md:gap-4 text-5xl sm:text-6xl md:text-6xl lg:text-[100px] md:text-[75px] font-500 tracking-tight">
+                        <h2 className="hidden  sm:flex items-center gap-2 md:gap-4 text-5xl sm:text-6xl md:text-6xl lg:text-[100px] md:text-[75px] font-medium tracking-tight">
                             <span>Our</span>
                             <span className="inline-block w-14 h-14 sm:w-16 sm:h-16 md:w-16 md:h-16 lg:w-24 lg:h-24 rounded-2xl overflow-hidden shadow-lg">
                                 <img
@@ -98,7 +98,7 @@ const Ourservices = () => {
                                         alt={service.title}
                                     />
                                 </div>
-                                <h3 className=" sm:text-[30px] font-500 md:text-[30px] font-500 tracking-tight leading-tight">
+                                <h3 className=" sm:text-[30px] font-medium md:text-[30px] font-medium tracking-tight leading-tight">
                                     {service.title}
                                 </h3>
                             </div>
@@ -110,7 +110,7 @@ const Ourservices = () => {
                                         <MdOutlineArrowOutward className="text-3xl md:text-5xl text-white" />
                                     </div>
                                 </div>
-                                <h3 className="text-2xl md:text-[50px] font-500 tracking-tight leading-tight whitespace-nowrap">
+                                <h3 className="text-2xl md:text-[50px] font-medium tracking-tight leading-tight whitespace-nowrap">
                                     {service.title}
                                 </h3>
                             </div>

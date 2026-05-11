@@ -2,6 +2,11 @@ import { useEffect, useState, useRef } from "react";
 import { gsap } from "gsap";
 import { FaBars, FaTimes, FaPlus } from "react-icons/fa";
 import { MdOutlineArrowOutward } from "react-icons/md";
+import ServicesCard from "./Navhovercard/ServicesCard";
+import IndustriesCard from "./Navhovercard/IndustriesCard";
+import InternationalCard from "./Navhovercard/InternationalCard";
+import AboutCard from "./Navhovercard/AboutCard";
+import BlogResourcesCard from "./Navhovercard/BlogResourcesCard";
 
 // ইমেজ এবং লোগো ডাটা
 const allImages = [
@@ -61,7 +66,8 @@ const Navbanner = () => {
     const [lastScrollY, setLastScrollY] = useState(0);
     const [currentIndex, setCurrentIndex] = useState(0);
     const bannerRef = useRef(null);
-
+    const [hoveredLink, setHoveredLink] = useState(null);
+    const [hoverPosition, setHoverPosition] = useState({ top: 0, left: 0 });
     const ellipseRef = useRef(null);
     const bgImageRef = useRef(null);
     const headingImageRef = useRef(null);
@@ -145,8 +151,17 @@ const Navbanner = () => {
         }, 600);
     }, [currentIndex]);
 
+    const handleLinkHover = (linkId, event) => {
+        const rect = event.currentTarget.getBoundingClientRect();
+        setHoverPosition({
+            top: rect.bottom + window.scrollY + 10,
+            left: rect.left + window.scrollX - 50,
+        });
+        setHoveredLink(linkId);
+    };
+
     return (
-        <div ref={bannerRef} className="relative w-full overflow-hidden mb-12 rounded-3xl my-2">
+        <div ref={bannerRef} className="relative w-full overflow-hidden mb-12 rounded-3xl my-2 ">
             {/* SVG Mask Background - Fixed full width/height */}
             <div className="fixed inset-0 w-full h-full z-[100] pointer-events-none">
                 <svg className="w-full h-full" viewBox="0 0 1920 1080" preserveAspectRatio="none">
@@ -156,7 +171,7 @@ const Navbanner = () => {
                             <ellipse ref={ellipseRef} cx="960" cy="2000" rx="0" ry="0" fill="black" />
                         </mask>
                     </defs>
-                    <rect width="100%" height="100%" fill="#111212" mask="url(#circleMask)" />
+                    <rect width="100%" height="100%" fill="#B2F6E3" mask="url(#circleMask)" />
                 </svg>
             </div>
 
@@ -182,7 +197,7 @@ const Navbanner = () => {
                 <nav
                     className={`container mx-auto transition-all  duration-500  lg:rounded-full ease-in-out px-4 sm:px-6 md:px-1
                         ${navbarBgActive
-                        ? "bg-[#9ca3bc]/90 text-black backdrop-blur-xl py-3 "
+                        ? "bg-[#9ca3bc]/80 text-black backdrop-blur-xl py-3 "
                             : "bg-transparent py-20 md:py-14 lg:py-14"}
                     `}
                 >
@@ -214,18 +229,26 @@ const Navbanner = () => {
                         </a>
 
                         {/* Desktop Links */}
-                        <div className="hidden lg:flex items-center gap-x-1 xl:gap-x-2 ">
+                        {/* Desktop Links */}
+                        <div className="hidden lg:flex items-center gap-x-1 xl:gap-x-2 relative">
                             {navLinks.map((link) => (
                                 <button
                                     key={link.id}
-                                    className={`relative  hover:bg-white hover:rounded-full hover:text-black cursor-pointer hover:py-1 px-2 py-2 font-medium text-sm xl:text-base hover:opacity-70 transition-opacity 
+                                    onMouseEnter={(e) => {
+                                        if (link.name === "Services" || link.name === "Industries" ||
+                                            link.name === "International" || link.name === "About" ||
+                                            link.name === "Blog&Resourses") {
+                                            handleLinkHover(link.id, e);
+                                        }
+                                    }}
+                                    onMouseLeave={() => setHoveredLink(null)}
+                                    className={`relative hover:bg-white hover:rounded-full hover:text-black cursor-pointer hover:py-1 px-2 py-2 font-medium text-sm xl:text-base transition-all duration-300 
             ${navbarBgActive ? "text-black" : "text-white"}`}
                                 >
-                                    <span className="flex text-[16px] font-500 items-center gap-1">
+                                    <span className="flex text-[16px] font-medium items-center gap-1">
                                         {link.name}
                                         {link.hasPlus && <FaPlus size={8} />}
                                     </span>
-
                                     {link.badge && (
                                         <span className="absolute -top-1 -right-0 text-[8px] px-1.5 py-0.5 rounded-full bg-[#2dd4bf] text-black font-bold">
                                             {link.badge}
@@ -234,6 +257,25 @@ const Navbanner = () => {
                                 </button>
                             ))}
                         </div>
+
+                        {/* Hover Cards - শুধু large device এ দেখাবে */}
+                        {hoveredLink && (
+                            <div
+                                className="hidden lg:block fixed z-[200] animate-in fade-in duration-200"
+                                style={{
+                                    top: hoverPosition.top,
+                                    left: hoverPosition.left,
+                                }}
+                                onMouseEnter={() => setHoveredLink(hoveredLink)}
+                                onMouseLeave={() => setHoveredLink(null)}
+                            >
+                                {hoveredLink === "services" && <ServicesCard />}
+                                {hoveredLink === "Industries" && <IndustriesCard />}
+                                {hoveredLink === "international" && <InternationalCard />}
+                                {hoveredLink === "about" && <AboutCard />}
+                                {hoveredLink === "blog" && <BlogResourcesCard />}
+                            </div>
+                        )}
 
                         {/* CTA & Toggle */}
                         <div className="flex items-center gap-3 sm:gap-4">
@@ -271,7 +313,7 @@ const Navbanner = () => {
 
             {/* Mobile/Tablet Menu */}
             {menuOpen && (
-                <div className="fixed inset-0 w-full h-full bg-black  z-[250] flex flex-col overflow-y-auto">
+                <div className="fixed inset-0 w-full h-full bg-black  rounded-3xl  z-[250] flex flex-col overflow-y-auto">
                     {/* Close button - উপরে fixed থাকবে */}
                     <div className="sticky top-0 bg-black z-10 p-6 pb-4 flex justify-end border-b border-white/10">
                         <button onClick={() => setMenuOpen(false)} className="text-white p-2 hover:bg-white/10 rounded-full transition-colors">

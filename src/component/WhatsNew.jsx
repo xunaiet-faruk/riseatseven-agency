@@ -67,7 +67,7 @@ const WhatsNew = () => {
         return (
             <section className="py-20 overflow-hidden container mx-auto px-4 font-sans">
                 <div className="flex justify-between items-end mb-12">
-                    <h2 className="flex items-center gap-4 text-5xl md:text-[100px] font-500 tracking-tighter">
+                    <h2 className="flex items-center gap-4 text-5xl md:text-[100px] font-medium tracking-tighter">
                         <span>What’s</span>
                         <img src="https://rise-atseven.transforms.svdcdn.com/production/images/FOS25-3380.jpg?w=200&h=200&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1750846499&s=8c1a07d60970e114e350dc38945f6bad" alt="" className="w-12 h-12 md:w-[100px] md:h-[100px] object-cover rounded-2xl" />
                         <span>New</span>
@@ -134,7 +134,7 @@ const WhatsNew = () => {
                                     </div>
                                     <span className="text-sm text-gray-500 bg-white border border-gray-100 px-3 py-1 rounded-full">{card.time}</span>
                                 </div>
-                                <h3 className="text-[28px] font-500 leading-tight group-hover:underline underline-offset-4">{card.title}</h3>
+                                <h3 className="text-[28px] font-medium leading-tight group-hover:underline underline-offset-4">{card.title}</h3>
                             </div>
                         </div>
                     ))}
@@ -147,7 +147,7 @@ const WhatsNew = () => {
     return (
         <section className="py-16 px-4 overflow-hidden  font-sans">
             <div className="flex justify-between items-center mb-12">
-                <h2 className="flex items-center gap-4 text-5xl font-500 tracking-tighter">
+                <h2 className="flex items-center gap-4 text-5xl font-medium tracking-tighter">
                     <span>What’s</span>
                     <img src="https://rise-atseven.transforms.svdcdn.com/production/images/FOS25-3380.jpg?w=200&h=200&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1750846499&s=8c1a07d60970e114e350dc38945f6bad" alt="" className="w-12 h-12 object-cover rounded-2xl" />
                     <span>New</span>
@@ -190,7 +190,7 @@ const WhatsNew = () => {
                                     <span className="text-[11px] font-semibold">{card.author}</span>
                                     <span className="text-[10px] text-gray-400 bg-gray-50 px-2 py-0.5 rounded-full">{card.time}</span>
                                 </div>
-                                <h3 className="text-md font-500 leading-tight pr-4">{card.title}</h3>
+                                <h3 className="text-md font-medium leading-tight pr-4">{card.title}</h3>
                             </div>
                         </div>
                     ))}

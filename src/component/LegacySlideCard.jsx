@@ -106,9 +106,9 @@ const StackedCards = () => {
                                     className={`w-[90%] md:w-full h-[475px] md:h-[650px] rounded-[40px] shadow-2xl p-10 flex flex-col items-center border border-white/10 ${card.color === '#000000' ? 'text-white' : 'text-black'}`}
                                 >
                                     <img className='w-[180px] md:w-[270px] rounded-2xl mb-6' src={card.image} alt={card.title} />
-                                    <h2 className="text-[40px] md:text-[55px] font-500 mb-4 tracking-tighter text-center leading-none">{card.title}</h2>
-                                    <p className="font-500 text-center text-sm md:text-[16px] opacity-90">{card.details}</p>
-                                    {card.details2 && <p className="pt-4 md:pt-6 font-500 text-center text-sm md:text-[16px] opacity-90">{card.details2}</p>}
+                                    <h2 className="text-[40px] md:text-[55px] font-medium mb-4 tracking-tighter text-center leading-none">{card.title}</h2>
+                                    <p className="font-medium text-center text-sm md:text-[16px] opacity-90">{card.details}</p>
+                                    {card.details2 && <p className="pt-4 md:pt-6 font-medium text-center text-sm md:text-[16px] opacity-90">{card.details2}</p>}
                                 </div>
                             </div>
                         ))}
@@ -133,9 +133,9 @@ const StackedCards = () => {
                                     className={`absolute w-[320px] h-[460px] md:w-[620px] md:h-[620px] rounded-[40px] shadow-2xl p-10 flex flex-col items-center border border-white/10 ${card.color === '#000000' ? 'text-white' : 'text-black'}`}
                                 >
                                     <img className='w-[200px] rounded-2xl mb-4' src={card.image} alt={card.title} />
-                                    <h2 className="text-[60px] font-500 mb-4 tracking-tighter text-center leading-none">{card.title}</h2>
-                                    <p className="font-500 text-center text-sm md:text-[16px] opacity-90">{card.details}</p>
-                                    {card.details2 && <p className="pt-6 font-500 text-center text-sm md:text-[16px] opacity-90">{card.details2}</p>}
+                                    <h2 className="text-[60px] font-medium mb-4 tracking-tighter text-center leading-none">{card.title}</h2>
+                                    <p className="font-medium text-center text-sm md:text-[16px] opacity-90">{card.details}</p>
+                                    {card.details2 && <p className="pt-6 font-medium text-center text-sm md:text-[16px] opacity-90">{card.details2}</p>}
                                 </div>
                             ))}
                         </div>

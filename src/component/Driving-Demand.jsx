@@ -8,7 +8,7 @@ const DrivingDemand = () => {
                 {/* ✅ Heading */}
                 <div className="order-1 md:order-2 flex flex-col gap-6">
 
-                    <h1 className="text-[60px] md:text-[50px] lg:text-[90px] font-500 leading-[0.95] text-black tracking-tighter">
+                    <h1 className="text-[60px] md:text-[50px] lg:text-[90px] font-medium leading-[0.95] text-black tracking-tighter">
 
                         {/* ✅ small */}
                         <span className="block md:hidden">
@@ -43,7 +43,7 @@ const DrivingDemand = () => {
                     </h1>
 
                     {/* ✅ Description (small এ heading এর নিচে) */}
-                    <p className="block md:hidden text-[18px]   leading-[1.3] font-500 text-black tracking-tight">
+                    <p className="block md:hidden text-[18px]   leading-[1.3] font-medium text-black tracking-tight">
                         A global team of search-first content marketers engineering semantic relevancy & category
                         signals for both the internet and people
                     </p>
@@ -51,11 +51,11 @@ const DrivingDemand = () => {
                     {/* ✅ Buttons (bottom feel + full width) */}
                     <div className="flex flex-col md:flex-row gap-3 mt-4">
 
-                        <button className=" group inline-flex justify-center text-[16px] items-center gap-2 px-4 py-3 rounded-3xl font-500 bg-white text-black hover:rounded-xl transition-all">
+                        <button className=" group inline-flex justify-center text-[16px] items-center gap-2 px-4 py-3 rounded-3xl font-medium bg-white text-black hover:rounded-xl transition-all">
                             Our Story <MdOutlineArrowOutward className="text-xs" />
                         </button>
 
-                        <button className=" group inline-flex justify-center items-center gap-2 text-[16px] px-4 py-3 rounded-3xl font-500 text-black hover:rounded-xl transition-all">
+                        <button className=" group inline-flex justify-center items-center gap-2 text-[16px] px-4 py-3 rounded-3xl font-medium text-black hover:rounded-xl transition-all">
                             Our Services <MdOutlineArrowOutward className="text-xs" />
                         </button>
                     </div>
@@ -63,7 +63,7 @@ const DrivingDemand = () => {
 
                 {/* ✅ Description for md+ */}
                 <div className="hidden md:flex order-2 md:order-1 ">
-                    <p className="md:text-[18px] lg:text-[24px] leading-[1.2] font-500 text-black tracking-tight  max-w-[600px]">
+                    <p className="md:text-[18px] lg:text-[24px] leading-[1.2] font-medium text-black tracking-tight  max-w-[600px]">
                         A global team of search-first content marketers<br/> engineering semantic relevancy & category <br />
                         signals for both the internet and people
                     </p>
