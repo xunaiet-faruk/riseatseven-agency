@@ -7,7 +7,7 @@ A modern, responsive, and animated web application built using React and Tailwin
 ## ✨ Features
 
 * ⚡ Fully Responsive Design (Mobile, Tablet, Desktop)
-* 🎬 Smooth Animations (GSAP / CSS transitions)
+* 🎬 Smooth Animations (GSAP/ framer motion / CSS transitions)
 * 🎯 Pixel Perfect UI Implementation
 * 🚀 Fast Performance Optimized
 * 🎨 Modern UI/UX Design
