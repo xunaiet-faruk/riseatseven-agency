@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+﻿import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -21,7 +21,6 @@ const CreativeSection = () => {
         const marquee = marqueeRef.current;
         const totalWidth = marquee.scrollWidth / 3;
 
-        // ১. বেস এনিমেশন (নরমাল ডিরেকশন)
         const loop = gsap.to(marquee, {
             x: `-=${totalWidth}`,
             duration: 60,
@@ -32,7 +31,6 @@ const CreativeSection = () => {
             }
         });
 
-        // ২. স্ক্রল ইন্টারেকশন
         ScrollTrigger.create({
             trigger: containerRef.current,
             start: "top bottom",
@@ -41,14 +39,12 @@ const CreativeSection = () => {
                 const velocity = self.getVelocity();
 
                 if (velocity < 0) {
-                    // শুধুমাত্র স্ক্রল করার সময় উল্টো চলবে
                     gsap.to(loop, {
-                        timeScale: -0.8, // উল্টো চলার স্পিড
+                        timeScale: -0.8, 
                         duration: 0.3,
                         overwrite: true
                     });
                 } else if (velocity > 0) {
-                    // নিচে স্ক্রল করলে স্পিড বাড়বে
                     gsap.to(loop, {
                         timeScale: 1 + Math.abs(velocity / 1000),
                         duration: 0.3,
@@ -56,20 +52,17 @@ const CreativeSection = () => {
                     });
                 }
             },
-            // স্ক্রল থামিয়ে দিলে এই ফাংশনটি কাজ করবে
             onRefresh: () => gsap.to(loop, { timeScale: 1, duration: 0.5 }),
             onLeave: () => gsap.to(loop, { timeScale: 1, duration: 0.5 }),
             onEnterBack: () => gsap.to(loop, { timeScale: 1, duration: 0.5 }),
         });
 
-        // স্ক্রল থামলে আবার সোজা করার জন্য একটি চেকার
         let scrollTimeout;
         const handleScrollStop = () => {
             clearTimeout(scrollTimeout);
             scrollTimeout = setTimeout(() => {
-                // স্ক্রল থেমে গেলে আবার সোজা (১) ডিরেকশনে ফিরে আসবে
                 gsap.to(loop, { timeScale: 1, duration: 1, ease: "power2.out" });
-            }, 100); // ১০০ মিলি-সেকেন্ড পর চেক করবে স্ক্রল থেমেছে কি না
+            }, 100); 
         };
 
         window.addEventListener("scroll", handleScrollStop);

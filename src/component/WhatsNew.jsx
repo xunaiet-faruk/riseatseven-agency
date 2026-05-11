@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import { motion, useMotionValue, useTransform, animate, AnimatePresence } from 'framer-motion';
 import { MdOutlineArrowOutward } from 'react-icons/md';
 
@@ -68,22 +68,20 @@ const WhatsNew = () => {
             <section className="py-20 overflow-hidden container mx-auto px-4 font-sans">
                 <div className="flex justify-between items-end mb-12">
                     <h2 className="flex items-center gap-4 text-5xl md:text-[100px] font-medium tracking-tighter">
-                        <span>What’s</span>
+                        <span>Whatâ€™s</span>
                         <img src="https://rise-atseven.transforms.svdcdn.com/production/images/FOS25-3380.jpg?w=200&h=200&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1750846499&s=8c1a07d60970e114e350dc38945f6bad" alt="" className="w-12 h-12 md:w-[100px] md:h-[100px] object-cover rounded-2xl" />
                         <span>New</span>
                     </h2>
 
-                    {/* Desktop Button with Vertical Flip Animation */}
+                    {}
                     <button className="group relative overflow-hidden inline-flex items-center justify-center px-6 h-[50px] rounded-3xl font-medium bg-white text-black border border-gray-200 shadow-sm transition-all text-sm cursor-pointer">
                         <div className="relative h-full flex flex-col items-center justify-center transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
                             <span className="flex items-center gap-2 h-full whitespace-nowrap">
                                 Explore More Thoughts
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                            </span>
+<MdOutlineArrowOutward className="text-lg transition-transform duration-300 group-hover:translate-x-1" />                            </span>
                             <span className="absolute top-full flex items-center gap-2 h-full whitespace-nowrap">
                                 Explore More Thoughts
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                            </span>
+<MdOutlineArrowOutward className="text-lg transition-transform duration-300 group-hover:translate-x-1" />                            </span>
                         </div>
                     </button>
                 </div>
@@ -148,12 +146,12 @@ const WhatsNew = () => {
         <section className="py-16 px-4 overflow-hidden  font-sans">
             <div className="flex justify-between items-center mb-12">
                 <h2 className="flex items-center gap-4 text-5xl font-medium tracking-tighter">
-                    <span>What’s</span>
+                    <span>Whatâ€™s</span>
                     <img src="https://rise-atseven.transforms.svdcdn.com/production/images/FOS25-3380.jpg?w=200&h=200&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1750846499&s=8c1a07d60970e114e350dc38945f6bad" alt="" className="w-12 h-12 object-cover rounded-2xl" />
                     <span>New</span>
                 </h2>
 
-                {/* Mobile Header Button */}
+                {}
                 <button className="group md:block hidden relative overflow-hidden flex items-center justify-center px-4 h-[40px] rounded-3xl font-medium bg-white text-black border border-gray-200 shadow-sm transition-all text-sm cursor-pointer">
                     <div className="relative h-full flex flex-col items-center justify-center transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
                         <span className="flex items-center gap-2 h-full whitespace-nowrap">
@@ -204,7 +202,7 @@ const WhatsNew = () => {
                 />
             </div>
 
-            {/* Mobile Footer Button (Right under cards/progress bar) */}
+            {}
             <div className="mt-8 md:hidden">
                 <button className="group relative overflow-hidden w-full flex items-center justify-center h-[50px] rounded-full font-medium bg-white text-black border border-gray-200 shadow-sm active:bg-gray-50 transition-all">
                     <div className="relative h-full flex flex-col items-center justify-center transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
@@ -224,3 +222,4 @@ const WhatsNew = () => {
 };
 
 export default WhatsNew;
+

@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { MdOutlineArrowOutward } from 'react-icons/md';
 
 const Footer = () => {
@@ -17,12 +17,12 @@ const Footer = () => {
         <footer className="bg-[#0f0f0f] text-white pt-16 pb-8 px-6 md:px-10 rounded-t-[40px]">
             <div className="max-w-[1440px] mx-auto">
 
-                {/* Grid Layout */}
+                {}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-20">
 
-                    {/* Newsletter and Socials */}
-                    {/* md:col-span-full -> Medium a full screen width */}
-                    {/* lg:col-span-5 -> Large a ageer moto 5 col width */}
+                    {}
+                    {}
+                    {}
                     <div className="md:col-span-full lg:col-span-5 flex flex-col gap-6">
                         <h3 className="text-2xl font-semibold tracking-tight">Stay updated with Rise news</h3>
                         <div className="relative w-full max-w-full md:max-w-2xl lg:max-w-sm group/input">
@@ -48,25 +48,25 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Links Section Wrapper */}
-                    {/* Small device (grid-cols-2), Medium (grid-cols-3), Large (lg:col-span-7) */}
+                    {}
+                    {}
                     <div className="md:col-span-full lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-10">
 
-                        {/* Column 1: Services */}
+                        {}
                         <div className="flex flex-col gap-2 border-l border-[#414141] pl-3 h-fit">
                             {['Services', 'Work', 'About', 'Culture', 'Meet The Risers'].map((item) => (
                                 <AnimatedLink key={item} text={item} />
                             ))}
                         </div>
 
-                        {/* Column 2: Testimonials */}
+                        {}
                         <div className="flex flex-col gap-2 border-l border-[#414141] pl-3 h-fit">
                             {['Testimonials', 'Blog', 'Webinars', 'Careers'].map((item) => (
                                 <AnimatedLink key={item} text={item} />
                             ))}
                         </div>
 
-                        {/* Column 3: Locations */}
+                        {}
                         <div className="flex flex-col gap-2 border-l border-[#414141] pl-3 h-fit col-span-2 md:col-span-1">
                             {['Sheffield', 'Manchester', 'London', 'New York', 'Contact'].map((item) => (
                                 <AnimatedLink key={item} text={item} />
@@ -75,10 +75,10 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* SVG Logo */}
+                {}
                 <div className="w-full mb-12">
                     <svg className="w-full h-auto fill-current text-white" viewBox="0 0 168 21" xmlns="http://www.w3.org/2000/svg">
-                        {/* ... (SVG paths exactly as before) */}
+                        {}
                         <path d="M91.3152 5.40061C91.3152 3.94241 92.5306 2.67359 93.9881 2.67359C95.7162 2.67359 96.797 3.83419 96.797 5.56225H99.7127C99.7127 2.1873 97.3096 0 93.9874 0C90.9371 0 88.3988 2.32257 88.3988 5.42766C88.3988 9.31596 90.883 10.2344 93.9874 11.4221C95.6627 12.07 97.2007 12.5563 97.2007 14.6895C97.2007 16.634 95.9867 18.0651 93.9874 18.0651C91.8813 18.0651 90.7477 16.3905 90.7477 14.446H87.832C87.832 18.0651 90.3426 20.7381 93.9874 20.7381C97.6323 20.7381 100.118 18.2816 100.118 14.6895C100.118 7.10161 91.3145 9.64061 91.3145 5.40061H91.3152Z"></path>
                         <path d="M109.209 4.99609C104.834 4.99609 101.539 8.53405 101.539 12.8539C101.539 17.1737 104.888 20.738 109.155 20.738C112.422 20.738 115.203 18.713 116.337 15.662H113.529C112.718 17.2278 111.017 18.1733 109.262 18.1733C106.806 18.1733 104.915 16.4182 104.348 14.0963H116.743C116.797 13.6371 116.823 13.1508 116.823 12.6922C116.823 8.47926 113.447 4.99609 109.209 4.99609ZM104.348 11.9361C104.509 9.47823 106.751 7.56147 109.181 7.56147C111.611 7.56147 113.853 9.47823 114.014 11.9361H104.348Z"></path>
                         <path d="M127.476 5.40039L123.575 16.0941L119.673 5.40039H116.676L122.617 20.3598H124.588L130.475 5.40039H127.476Z"></path>
@@ -96,15 +96,15 @@ const Footer = () => {
                     </svg>
                 </div>
 
-                {/* Bottom Bar */}
+                {}
                 <div className="flex flex-col md:flex-row justify-between items-center text-[10px] text-white border-t border-[#1e1e1e] pt-8">
                     <div className="flex flex-wrap justify-center gap-x-2 gap-y-2 tracking-widest">
-                        <span>© 2025 Rise at Seven Ltd. All rights reserved</span>
-                        <span className="hidden md:inline">•</span>
+                        <span>Â© 2025 Rise at Seven Ltd. All rights reserved</span>
+                        <span className="hidden md:inline">â€¢</span>
                         <span> Company Number 11955187</span>
-                        <span className="hidden md:inline">•</span>
+                        <span className="hidden md:inline">â€¢</span>
                         <span> VAT Registered GB 322402945</span>
-                        <span className="hidden md:inline">•</span>
+                        <span className="hidden md:inline">â€¢</span>
                         <a href="#" className="hover:text-[#B2F6E3] transition-colors">Privacy Policy</a>
                         <a href="#" className="hover:text-[#B2F6E3] transition-colors">Terms of Condition</a>
                     </div>

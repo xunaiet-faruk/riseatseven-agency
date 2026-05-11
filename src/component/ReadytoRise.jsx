@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+﻿import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,7 +11,6 @@ const ReadytoRise = () => {
     const [isLarge, setIsLarge] = useState(window.innerWidth >= 1024);
 
     useEffect(() => {
-        // স্ক্রিন সাইজ ট্র্যাক করার জন্য ফাংশন
         const handleResize = () => {
             const large = window.innerWidth >= 1024;
             setIsLarge(large);
@@ -19,7 +18,6 @@ const ReadytoRise = () => {
 
         window.addEventListener("resize", handleResize);
 
-        // GSAP Context ব্যবহার করা হয়েছে যাতে রি-রেন্ডারের সময় অ্যানিমেশন ক্লিন থাকে
         let ctx = gsap.context(() => {
             if (!isLarge) return;
 
@@ -72,14 +70,13 @@ const ReadytoRise = () => {
 
         return () => {
             window.removeEventListener("resize", handleResize);
-            ctx.revert(); // কম্পোনেন্ট আনমাউন্ট হলে সব ক্লিন করবে
+            ctx.revert(); 
         };
-    }, [isLarge]); // isLarge চেঞ্জ হলে useEffect আবার রান করবে
+    }, [isLarge]); 
 
     return (
         <section
             ref={sectionRef}
-            // dynamic class: isLarge না হলে 'hidden' ক্লাস গ্যাপ রিমুভ করবে
             className={`${!isLarge ? "hidden" : "lg:flex"} w-full h-[70vh] items-center justify-center overflow-hidden`}
         >
             <h1
@@ -96,3 +93,4 @@ const ReadytoRise = () => {
 };
 
 export default ReadytoRise;
+

@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { MdOutlineArrowOutward } from "react-icons/md";
 
 const Ourservices = () => {
@@ -14,11 +14,11 @@ const Ourservices = () => {
     return (
         <section className="py-20 px-6 md:px-10 font-sans text-[#1a1a1a]">
             <div className="container mx-auto">
-                {/* Header Section */}
+                {}
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 md:border-b md:border-gray-300 md:pb-8 lg:pb-8 gap-6">
-                    {/* Heading - Small: 2 lines, Medium/Large: row layout */}
+                    {}
                     <div className="w-full sm:w-auto">
-                        {/* Small device heading - 2 lines */}
+                        {}
                         <h2 className="block sm:hidden text-6xl font-medium tracking-tight">
                             Our
                             <span className="inline-block w-16 h-16 rounded-2xl ml-2 overflow-hidden shadow-lg align-middle mx-1">
@@ -31,7 +31,7 @@ const Ourservices = () => {
                             Services
                         </h2>
 
-                        {/* Medium & Large device heading - row layout */}
+                        {}
                         <h2 className="hidden  sm:flex items-center gap-2 md:gap-4 text-5xl sm:text-6xl md:text-6xl lg:text-[100px] md:text-[75px] font-medium tracking-tight">
                             <span>Our</span>
                             <span className="inline-block w-14 h-14 sm:w-16 sm:h-16 md:w-16 md:h-16 lg:w-24 lg:h-24 rounded-2xl overflow-hidden shadow-lg">
@@ -45,7 +45,7 @@ const Ourservices = () => {
                         </h2>
                     </div>
 
-                    {/* Button - Hidden on small devices, visible on medium/large */}
+                    {}
                     <div className="hidden sm:flex justify-start sm:justify-center">
                         <button className="group relative overflow-hidden bg-white 
         w-fit h-[45px] md:h-[52px] px-6
@@ -54,15 +54,15 @@ const Ourservices = () => {
         
         transition-all duration-300 shadow-sm">
 
-                            {/* এনিমেশন কন্টেইনার */}
+                            {}
                             <div className="relative h-full flex flex-col items-center justify-center transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
 
-                                {/* প্রথম টেক্সট ও আইকন */}
+                                {}
                                 <span className="flex items-center gap-2 h-full">
                                     View All Services <MdOutlineArrowOutward className="text-lg transition-transform duration-300 group-hover:translate-x-1" />
                                 </span>
 
-                                {/* দ্বিতীয় টেক্সট ও আইকন */}
+                                {}
                                 <span className="absolute top-full flex items-center gap-2 h-full whitespace-nowrap">
                                     View All Services <MdOutlineArrowOutward className="text-lg transition-transform duration-300 group-hover:translate-x-1" />
                                 </span>
@@ -72,14 +72,14 @@ const Ourservices = () => {
                     </div>
                 </div>
 
-                {/* Content Grid */}
+                {}
                 <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-20 md:grid-cols-2 md:gap-x-10">
                     {services.map((service) => (
                         <div
                             key={service.id}
                             className="group relative h-20 md:h-24 border-b border-gray-300 flex items-center px-2 cursor-pointer"
                         >
-                            {/* Large device hover effect */}
+                            {}
                             <div className="hidden lg:block absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out z-0">
                                 <img
                                     src={service.img}
@@ -89,7 +89,7 @@ const Ourservices = () => {
                                 <div className="absolute inset-0 bg-black/40 rounded-full m-1"></div>
                             </div>
 
-                            {/* Medium & Small devices - Image thumbnail before text */}
+                            {}
                             <div className="lg:hidden flex items-center gap-3 md:gap-4 w-full">
                                 <div className="w-12 h-12 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-2xl overflow-hidden flex-shrink-0">
                                     <img
@@ -103,7 +103,7 @@ const Ourservices = () => {
                                 </h3>
                             </div>
 
-                            {/* Large device content with hover arrow */}
+                            {}
                             <div className="hidden lg:flex relative z-10 items-center gap-2 md:gap-4 transition-all duration-500 group-hover:text-white group-hover:pl-4">
                                 <div className="overflow-hidden w-0 group-hover:w-10 md:group-hover:w-14 transition-all duration-500 ease-in-out">
                                     <div className="transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 delay-100">
@@ -118,7 +118,7 @@ const Ourservices = () => {
                     ))}
                 </div>
 
-                {/* Small device button - Bottom of content, full width */}
+                {}
                 <div className="block sm:hidden mt-8">
                     <button className="group relative overflow-hidden bg-white 
         w-full h-[48px] px-4 
@@ -127,15 +127,15 @@ const Ourservices = () => {
         hover:bg-black hover:text-white 
         transition-all duration-300 shadow-sm">
 
-                        {/* এনিমেশন কন্টেইনার */}
+                        {}
                         <div className="relative h-full flex flex-col items-center justify-center transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
 
-                            {/* প্রথম টেক্সট ও আইকন */}
+                            {}
                             <span className="flex items-center gap-2 h-full">
                                 View All Services <MdOutlineArrowOutward className="text-lg" />
                             </span>
 
-                            {/* দ্বিতীয় টেক্সট ও আইকন */}
+                            {}
                             <span className="absolute top-full flex items-center gap-2 h-full whitespace-nowrap">
                                 View All Services <MdOutlineArrowOutward className="text-lg" />
                             </span>
@@ -149,3 +149,4 @@ const Ourservices = () => {
 };
 
 export default Ourservices;
+

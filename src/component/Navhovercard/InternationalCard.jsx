@@ -1,53 +1,38 @@
-import { MdOutlineArrowOutward } from "react-icons/md";
-import { IoLocationOutline } from "react-icons/io5";
-import { FaBuilding, FaGlobeAmericas } from "react-icons/fa";
+﻿import React from 'react';
+import { MdOutlineArrowOutward } from 'react-icons/md';
 
 const InternationalCard = () => {
-    const offices = [
-        {
-            icon: <FaBuilding className="w-5 h-5" />,
-            location: "London, UK",
-            role: "EMEA Headquarters",
-            size: "45+ team members",
-            color: "text-blue-600"
-        },
-        {
-            icon: <FaGlobeAmericas className="w-5 h-5" />,
-            location: "New York, USA",
-            role: "North America Hub",
-            size: "38+ team members",
-            color: "text-red-600"
-        },
-        {
-            icon: <IoLocationOutline className="w-5 h-5" />,
-            location: "Berlin, Germany",
-            role: "EU Operations",
-            size: "28+ team members",
-            color: "text-yellow-600"
-        },
-    ];
-
     return (
-        <div className="w-[340px] bg-white rounded-2xl shadow-2xl overflow-hidden">
-            <div className="p-5">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Global Presence</h3>
-                <p className="text-sm text-gray-500 mb-4">4 offices serving clients worldwide</p>
-                <div className="space-y-3">
-                    {offices.map((office, idx) => (
-                        <div key={idx} className="flex items-start gap-3 p-3 rounded-xl hover:bg-gray-50 transition-all cursor-pointer border border-gray-100">
-                            <div className={`${office.color} mt-0.5`}>{office.icon}</div>
-                            <div className="flex-1">
-                                <p className="font-bold text-gray-800 text-sm">{office.location}</p>
-                                <p className="text-xs text-gray-500">{office.role}</p>
-                                <p className="text-[10px] text-[#2dd4bf] mt-1">{office.size}</p>
+        <div>
+               <div className="p-4">
+                        {}
+                        <div className="bg-white group relative w-full max-w-[560px] h-[230px] rounded-[2rem] p-4 flex items-center justify-between shadow-sm border border-gray-50 overflow-hidden transition-all duration-500 hover:shadow-xl">
+            
+                            {}
+                            <div className="flex-1 flex flex-col items-center justify-center  px-4">
+                                <h1 className="text-2xl md:text-3xl font-semibold tracking-tighter text-black leading-tight">
+                                  Us Digital PR<br/>
+                                  Spain Digital PR<br/>
+                                  gERMANY Digital PR<br/>
+                                  Netherlands Digital PR<br/>
+
+                                </h1>
+                                {}
+                                <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <MdOutlineArrowOutward className="text-[#2dd4bf] text-xl" />
+                                </div>
+                            </div>
+            
+                            {}
+                            <div className="relative h-full aspect-square overflow-hidden rounded-2xl">
+                                <img
+                            src='https://rise-atseven.transforms.svdcdn.com/production/images/d4df0d30-d590-4e94-9056-9491f4beacba.JPG?w=2000&h=2000&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1750847714&s=9b6e0a98f94b563a89840f3250cd1656'
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    alt="B2B Marketing"
+                                />
                             </div>
                         </div>
-                    ))}
-                </div>
-                <button className="mt-4 w-full py-2 text-sm font-medium text-[#2dd4bf] border-t border-gray-100 pt-4 flex items-center justify-center gap-1 hover:gap-2 transition-all">
-                    View global network <MdOutlineArrowOutward size={16} />
-                </button>
-            </div>
+                    </div>
         </div>
     );
 };

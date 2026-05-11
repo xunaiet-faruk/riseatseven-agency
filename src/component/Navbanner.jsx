@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+﻿import { useEffect, useState, useRef } from "react";
 import { gsap } from "gsap";
 import { FaBars, FaTimes, FaPlus } from "react-icons/fa";
 import { MdOutlineArrowOutward } from "react-icons/md";
@@ -8,7 +8,6 @@ import InternationalCard from "./Navhovercard/InternationalCard";
 import AboutCard from "./Navhovercard/AboutCard";
 import BlogResourcesCard from "./Navhovercard/BlogResourcesCard";
 
-// ইমেজ এবং লোগো ডাটা
 const allImages = [
     { url: "https://rise-atseven.transforms.svdcdn.com/production/images/Screenshot-2025-07-01-at-21.36.35.png?w=1198&h=1126&q=100&auto=format&fit=crop&dm=1751402284&s=4ad46c03819812b327e9b4643c1b0e6c", thumbnail: "https://rise-atseven.transforms.svdcdn.com/production/images/Screenshot-2025-07-01-at-21.36.35.png?w=1198&h=1126&q=100&auto=format&fit=crop&dm=1751402284&s=4ad46c03819812b327e9b4643c1b0e6c" },
     { url: "https://rise-atseven.transforms.svdcdn.com/production/images/RedBull-Instagram-Post-45.png?w=1890&h=2363&q=100&auto=format&fit=crop&dm=1753775231&s=60dc0e3c84825da30f8d809caf5fabe1", thumbnail: "https://rise-atseven.transforms.svdcdn.com/production/images/RedBull-Instagram-Post-45.png?w=1890&h=2363&q=100&auto=format&fit=crop&dm=1753775231&s=60dc0e3c84825da30f8d809caf5fabe1" },
@@ -74,7 +73,6 @@ const Navbanner = () => {
     const categoryWordRef = useRef(null);
     const leadersWordRef = useRef(null);
 
-    // Scroll logic for navbar visibility and background
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
@@ -90,7 +88,6 @@ const Navbanner = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [lastScrollY]);
 
-    // GSAP Animations
     useEffect(() => {
         gsap.to(ellipseRef.current, {
             attr: { rx: 2700, ry: 2150 },
@@ -119,7 +116,6 @@ const Navbanner = () => {
         );
     }, []);
 
-    // Image rotation logic
     useEffect(() => {
         const interval = setInterval(() => {
             if (categoryWordRef.current && leadersWordRef.current) {
@@ -162,7 +158,7 @@ const Navbanner = () => {
 
     return (
         <div ref={bannerRef} className="relative w-full overflow-hidden mb-12 rounded-3xl my-2 ">
-            {/* SVG Mask Background - Fixed full width/height */}
+            {}
             <div className="fixed inset-0 w-full h-full z-[100] pointer-events-none">
                 <svg className="w-full h-full" viewBox="0 0 1920 1080" preserveAspectRatio="none">
                     <defs>
@@ -175,7 +171,7 @@ const Navbanner = () => {
                 </svg>
             </div>
 
-            {/* Banner Background - Full width with no gap */}
+            {}
             <div className="absolute inset-0 w-full overflow-hidden">
                 <div className="w-full h-full overflow-hidden bg-black">
                     <img
@@ -190,7 +186,7 @@ const Navbanner = () => {
                 </div>
             </div>
 
-            {/* Navbar - Fixed at top with FULL width (no gaps) */}
+            {}
             <div className={`fixed top-0 left-0 right-0 w-full z-[150] transition-all duration-500 ease-in-out
                 ${isVisible ? "translate-y-0" : "-translate-y-full"}
             `}>
@@ -202,7 +198,7 @@ const Navbanner = () => {
                     `}
                 >
                     <div className="container lg:px-5 md:px-4 px-3 mx-auto flex items-center justify-between">
-                        {/* Logo */}
+                        {}
                         <a href="#" className="flex w-24 sm:w-28 md:w-36 lg:w-35 shrink-0">
                             <svg
                                 className={`w-full h-full object-contain fill-current transition-colors
@@ -228,8 +224,8 @@ const Navbanner = () => {
                             </svg>
                         </a>
 
-                        {/* Desktop Links */}
-                        {/* Desktop Links */}
+                        {}
+                        {}
                         <div className="hidden lg:flex items-center gap-x-1 xl:gap-x-2 relative">
                             {navLinks.map((link) => (
                                 <button
@@ -258,7 +254,7 @@ const Navbanner = () => {
                             ))}
                         </div>
 
-                        {/* Hover Cards - শুধু large device এ দেখাবে */}
+                        {}
                         {hoveredLink && (
                             <div
                                 className="hidden lg:block fixed z-[200] animate-in fade-in duration-200"
@@ -277,7 +273,7 @@ const Navbanner = () => {
                             </div>
                         )}
 
-                        {/* CTA & Toggle */}
+                        {}
                         <div className="flex items-center gap-3 sm:gap-4">
                             <button
                                 className={`hidden lg:inline-flex group relative overflow-hidden items-center justify-center px-3 h-[35px] rounded-full font-medium transition-all text-xs xl:text-sm
@@ -286,15 +282,15 @@ const Navbanner = () => {
                                         : "bg-white text-black"
                                     }`}
                             >
-                                {/* এনিমেশন কন্টেইনার - এটার হাইট বাটনের সমান রাখা হয়েছে */}
+                                {}
                                 <div className="relative h-full flex flex-col items-center justify-center transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
 
-                                    {/* প্রথম টেক্সট */}
+                                    {}
                                     <span className="flex items-center gap-2 h-full whitespace-nowrap">
                                         Get in touch <MdOutlineArrowOutward />
                                     </span>
 
-                                    {/* দ্বিতীয় টেক্সট - এটা শুরুতেই বাটনের নিচে (top-full) লুকিয়ে থাকবে */}
+                                    {}
                                     <span className="absolute top-full flex items-center gap-2 h-full whitespace-nowrap">
                                         Get in touch <MdOutlineArrowOutward />
                                     </span>
@@ -302,7 +298,7 @@ const Navbanner = () => {
                                 </div>
                             </button>
 
-                            {/* মোবাইল মেনু বাটন */}
+                            {}
                             <button onClick={() => setMenuOpen(true)} className="lg:hidden p-2 text-white">
                                 <FaBars size={22} />
                             </button>
@@ -311,17 +307,17 @@ const Navbanner = () => {
                 </nav>
             </div>
 
-            {/* Mobile/Tablet Menu */}
+            {}
             {menuOpen && (
                 <div className="fixed inset-0 w-full h-full bg-black  rounded-3xl  z-[250] flex flex-col overflow-y-auto">
-                    {/* Close button - উপরে fixed থাকবে */}
+                    {}
                     <div className="sticky top-0 bg-black z-10 p-6 pb-4 flex justify-end border-b border-white/10">
                         <button onClick={() => setMenuOpen(false)} className="text-white p-2 hover:bg-white/10 rounded-full transition-colors">
                             <FaTimes size={28} />
                         </button>
                     </div>
 
-                    {/* Menu Content - স্ক্রলযোগ্য এবং উপরে থেকে দূরত্ব থাকবে */}
+                    {}
                     <div className="flex-1 px-8 pt-8 pb-12">
                         <div className="flex flex-col gap-6">
                             {navLinks.map((link) => (
@@ -344,15 +340,15 @@ const Navbanner = () => {
 
                         <button className="group relative overflow-hidden w-full mt-10 bg-white text-black h-14 rounded-full font-bold text-base flex items-center justify-center hover:bg-[#2dd4bf] transition-all duration-300">
 
-                            {/* এনিমেশন কন্টেইনার - এটাকে বাটনের সমান হাইট (h-full) দেওয়া হয়েছে */}
+                            {}
                             <div className="relative h-full flex flex-col items-center justify-center transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
 
-                                {/* প্রথম টেক্সট ও আইকন */}
+                                {}
                                 <span className="flex items-center justify-center gap-2 h-full w-full px-6 whitespace-nowrap">
                                     Get in touch <MdOutlineArrowOutward size={20} />
                                 </span>
 
-                                {/* দ্বিতীয় টেক্সট ও আইকন - যা শুরুতে বাটনের সীমানার বাইরে থাকবে */}
+                                {}
                                 <span className="absolute top-full flex items-center justify-center gap-2 h-full w-full px-6 whitespace-nowrap">
                                     Get in touch <MdOutlineArrowOutward size={20} />
                                 </span>
@@ -363,7 +359,7 @@ const Navbanner = () => {
                 </div>
             )}
 
-            {/* Hero Content Section - Responsive */}
+            {}
             <div className="relative z-10 flex flex-col justify-center items-center text-center px-4 pt-12  md:pt-20 lg:pt-30 pb- md:pb-32 lg:pb-40">
                 <div className="award-badge mb-6 md:mb-8">
                     <div className="text-[9px] sm:text-[10px] md:text-xs font-bold text-white/80 mb-3 md:mb-4 tracking-widest uppercase">
@@ -413,7 +409,7 @@ const Navbanner = () => {
                     on every searchable platform
                 </p>
 
-                {/* Platform Logos - Desktop only */}
+                {}
                 <div className="platform-logos mt-8 sm:mt-10 md:mt-12 hidden lg:flex flex-wrap justify-center items-center gap-5 sm:gap-8 md:gap-12 px-4">
                     {platformLogos.map((logo, idx) => (
                         <img key={idx} src={logo.url} className="w-7 sm:w-8 md:w-10 lg:w-12 opacity-70 hover:opacity-100 transition-opacity" alt={logo.name} />
@@ -421,7 +417,7 @@ const Navbanner = () => {
                 </div>
             </div>
 
-            {/* Bottom Info Section */}
+            {}
             <div className="bottom-info absolute bottom-0 left-0 z-20 w-full p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-6 pointer-events-none">
                 <p className="text-white text-[9px] sm:text-[10px] md:text-xs lg:text-sm max-w-[240px] sm:max-w-xs md:max-w-sm text-left leading-relaxed hidden sm:block">
                     Organic media planners creating, distributing & optimising <br className="hidden lg:block" />
@@ -444,3 +440,4 @@ const Navbanner = () => {
 };
 
 export default Navbanner;
+

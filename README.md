@@ -1,16 +1,73 @@
-# React + Vite
+# 🚀 Project Name
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive, and animated web application built using React and Tailwind CSS. This project focuses on smooth UI/UX, clean design, and performance optimization.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+* ⚡ Fully Responsive Design (Mobile, Tablet, Desktop)
+* 🎬 Smooth Animations (GSAP / CSS transitions)
+* 🎯 Pixel Perfect UI Implementation
+* 🚀 Fast Performance Optimized
+* 🎨 Modern UI/UX Design
+* 📱 Mobile Friendly Navigation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ⚠️ Note About Animation & Responsiveness
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+In some rare cases, animations or responsiveness may not behave perfectly due to browser rendering or device performance.
+
+👉 **Quick Fix:**
+Refreshing the page will resolve the issue and restore the expected behavior.
+
+---
+
+## 🛠️ Tech Stack
+
+* React.js
+* JavaScript (ES6+)
+* Tailwind CSS
+* React Icon
+* GSAP Framer Motion (for animations)
+
+---
+
+## 📂 Installation & Setup
+
+Follow these steps to run the project locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/xunaiet-faruk/riseatseven-agency
+
+# Navigate to project folder
+cd your-repo-name
+
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
+```
+
+---
+
+## 🌐 Live Demo
+
+👉 https://riseatseven-agency.vercel.app
+
+---
+
+
+
+## 📌 Future Improvements
+
+* Improve animation performance on low-end devices
+* Add more interactive UI components
+* Optimize loading experience
+
+---
+
+

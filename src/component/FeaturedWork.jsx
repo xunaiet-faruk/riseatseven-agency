@@ -1,4 +1,4 @@
-import { gsap } from 'gsap';
+﻿import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { FaSearch } from 'react-icons/fa';
@@ -31,11 +31,9 @@ const FeaturedWork = () => {
     const [hoveredId, setHoveredId] = useState(null);
     const [isOverCard, setIsOverCard] = useState(false);
 
-    // Optimized Custom Cursor logic
     useEffect(() => {
         if (window.innerWidth < 1024 || !cursorRef.current) return;
 
-        // Mouse Move Handler inside useEffect to ensure it only runs when needed
         const xSetter = gsap.quickSetter(cursorRef.current, "x", "px");
         const ySetter = gsap.quickSetter(cursorRef.current, "y", "px");
 
@@ -46,7 +44,6 @@ const FeaturedWork = () => {
 
         window.addEventListener('mousemove', handleMouseMove);
 
-        // Visibility Toggle
         if (isOverCard) {
             document.body.style.cursor = 'none';
             gsap.to(cursorRef.current, { scale: 1, opacity: 1, visibility: 'visible', duration: 0.3, ease: "power2.out" });
@@ -62,7 +59,6 @@ const FeaturedWork = () => {
         return () => window.removeEventListener('mousemove', handleMouseMove);
     }, [isOverCard]);
 
-    // Scroll Animation (Unchanged)
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
             const imageHeight = imageScrollRef.current.scrollHeight;
@@ -97,7 +93,7 @@ const FeaturedWork = () => {
         <div className="px-4 md:px-5 lg:px-0">
             <div ref={containerRef} className="bg-black text-white relative rounded-3xl overflow-hidden md:px-5 lg:px-0 px-5">
 
-                {/* Custom Cursor - Fixed styling and initial state */}
+                {}
                 <div
                     ref={cursorRef}
                     style={{
@@ -107,7 +103,7 @@ const FeaturedWork = () => {
                         zIndex: 9999,
                         pointerEvents: 'none',
                         visibility: 'hidden',
-                        transform: 'translate(-50%, -50%)' // Manual centering
+                        transform: 'translate(-50%, -50%)' 
                     }}
                     className="hidden lg:flex items-center justify-center w-32 h-32 rounded-full bg-[#B2F6E3] text-black shadow-2xl"
                 >
@@ -117,7 +113,7 @@ const FeaturedWork = () => {
                 <section ref={sectionRef} className="lg:h-[750px] md:h-[750px] h-[630px] flex items-center overflow-hidden relative">
                     <div className="container mx-auto flex h-full items-start pt-8 lg:gap-12 lg:px-8">
 
-                        {/* Left Side List */}
+                        {}
                         <div className="w-1/2 hidden lg:block">
                             <p className="text-[22px] font-medium text-white mb-6 pt-32">Featured Work</p>
                             <div className="relative h-[450px] overflow-hidden border-l border-zinc-900">
@@ -139,7 +135,7 @@ const FeaturedWork = () => {
                             </div>
                         </div>
 
-                        {/* Right Side Image Display */}
+                        {}
                         <div className="w-full lg:w-1/2 h-full relative overflow-hidden py-4 md:py-8 lg:py-0">
                             <div ref={imageScrollRef} className="flex flex-col gap-8 md:gap-12 lg:gap-6">
                                 {projects.map((item) => (
@@ -156,7 +152,7 @@ const FeaturedWork = () => {
                                                 ${hoveredId === item.id ? 'lg:scale-105' : 'scale-100'}`}
                                         />
 
-                                        {/* Mobile Title View */}
+                                        {}
                                         <div className="absolute bottom-0 left-1 z-30 lg:hidden">
                                             <div className="rounded-lg px-4 py-2">
                                                 <p className="text-white/80 text-xs md:text-[12px] font-semibold">{item.year}</p>
@@ -164,7 +160,7 @@ const FeaturedWork = () => {
                                             </div>
                                         </div>
 
-                                        {/* Color Overlay Logic */}
+                                        {}
                                         <div
                                             className={`absolute lg:block hidden inset-0 z-10 ${item.color} transition-all duration-700 ease-in-out p-8 md:p-12
                                                 ${hoveredId === item.id ? 'opacity-100' : 'opacity-0 lg:opacity-0'}`}
@@ -179,7 +175,7 @@ const FeaturedWork = () => {
                                             </div>
                                         </div>
 
-                                        {/* Bottom Tags */}
+                                        {}
                                         {item.id !== 3 && (
                                             <div className="absolute top-4 right-4 md:top-6 md:right-6 lg:bottom-6 lg:right-6 lg:top-auto z-20">
                                                 <div className="flex items-center gap-2 md:gap-3 px-2 py-1 md:px-6 md:py-3 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white">
@@ -195,6 +191,21 @@ const FeaturedWork = () => {
                         </div>
                     </div>
                 </section>
+            </div>
+
+            <div className="flex justify-center items-center py-12">
+                <button className="group relative overflow-hidden inline-flex items-center justify-center px-6 h-[50px] text-lg rounded-3xl font-medium bg-white text-black shadow-sm transition-all text-sm cursor-pointer">
+                    <div className="relative h-full flex flex-col items-center justify-center transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
+                        <span className="flex items-center gap-2 h-full whitespace-nowrap ">
+                            Explore Our Work
+                          <MdOutlineArrowOutward className="text-lg transition-transform duration-300 group-hover:translate-x-1" />
+                        </span>
+                        <span className="absolute top-full flex items-center gap-2 h-full whitespace-nowrap">
+                            Explore Our Work
+                          <MdOutlineArrowOutward className="text-lg transition-transform duration-300 group-hover:translate-x-1" />
+                        </span>
+                    </div>
+                </button>
             </div>
         </div>
     );

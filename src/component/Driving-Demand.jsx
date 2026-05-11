@@ -1,16 +1,16 @@
-import { MdOutlineArrowOutward } from "react-icons/md";
+﻿import { MdOutlineArrowOutward } from "react-icons/md";
 
 const DrivingDemand = () => {
     return (
         <section className="py-10 px-4 flex flex-col justify-center">
             <div className="container mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:gap-28 md:gap-20 items-start">
 
-                {/* ✅ Heading */}
+                {}
                 <div className="order-1 md:order-2 flex flex-col gap-6">
 
                     <h1 className="text-[60px] md:text-[50px] lg:text-[90px] font-medium leading-[0.95] text-black tracking-tighter">
 
-                        {/* ✅ small */}
+                        {}
                         <span className="block md:hidden">
                             Driving Demand 
 
@@ -26,7 +26,7 @@ const DrivingDemand = () => {
                             </span>
                         </span>
 
-                        {/* ✅ md+ (unchanged) */}
+                        {}
                         <span className="hidden md:block">
                             Driving Demand & <br />
                             <span className="flex items-center gap-4 flex-wrap">
@@ -42,13 +42,13 @@ const DrivingDemand = () => {
                         </span>
                     </h1>
 
-                    {/* ✅ Description (small এ heading এর নিচে) */}
+                    {}
                     <p className="block md:hidden text-[18px]   leading-[1.3] font-medium text-black tracking-tight">
                         A global team of search-first content marketers engineering semantic relevancy & category
                         signals for both the internet and people
                     </p>
 
-                    {/* ✅ Buttons (bottom feel + full width) */}
+                    {}
                     <div className="flex flex-col md:flex-row gap-3 mt-4">
 
                         <button className=" group inline-flex justify-center text-[16px] items-center gap-2 px-4 py-3 rounded-3xl font-medium bg-white text-black hover:rounded-xl transition-all">
@@ -61,7 +61,7 @@ const DrivingDemand = () => {
                     </div>
                 </div>
 
-                {/* ✅ Description for md+ */}
+                {}
                 <div className="hidden md:flex order-2 md:order-1 ">
                     <p className="md:text-[18px] lg:text-[24px] leading-[1.2] font-medium text-black tracking-tight  max-w-[600px]">
                         A global team of search-first content marketers<br/> engineering semantic relevancy & category <br />
@@ -75,3 +75,4 @@ const DrivingDemand = () => {
 };
 
 export default DrivingDemand;
+

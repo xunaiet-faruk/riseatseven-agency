@@ -1,13 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
+﻿import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const cardsData = [
-    { id: 1, title: 'Pioneers', color: '#000000', image: 'https://rise-atseven.transforms.svdcdn.com/production/images/b2087e0cd3f699d3efc76f809ec72a85a6ab378e-1080x1350.jpg?w=2000&h=2000&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1750847630&s=69735376fddade35059585570e316087', details: 'We’re dedicated to creating the industry narrative that others follow 3 years from now. We paved the path for creative SEO, multi-channel search with Digital PR, and Social Search and we will continue to do it.', details2: 'We’re on a mission to be the first search-first agency to win a Cannes Lion disrupting the status quo.', rotation: 12 },
+    { id: 1, title: 'Pioneers', color: '#000000', image: 'https://rise-atseven.transforms.svdcdn.com/production/images/b2087e0cd3f699d3efc76f809ec72a85a6ab378e-1080x1350.jpg?w=2000&h=2000&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1750847630&s=69735376fddade35059585570e316087', details: 'Weâ€™re dedicated to creating the industry narrative that others follow 3 years from now. We paved the path for creative SEO, multi-channel search with Digital PR, and Social Search and we will continue to do it.', details2: 'Weâ€™re on a mission to be the first search-first agency to win a Cannes Lion disrupting the status quo.', rotation: 12 },
     { id: 2, title: 'Innovators', color: '#B2F6E3', image: 'https://rise-atseven.transforms.svdcdn.com/production/images/d4df0d30-d590-4e94-9056-9491f4beacba.JPG?w=2000&h=2000&q=90&auto=format&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1750847714&s=e7cf97f291d3f983c8b99ab6a463f51e', details: 'A roll top bath full of 79 awards. Voted The Drums best agency outside of London.We are official judges for industry awards including Global Search Awards and Global Content Marketing Awards.', rotation: 10 },
-    { id: 3, title: 'Visionaries', color: '#FFFFFF', image: 'https://rise-atseven.transforms.svdcdn.com/production/images/Screenshot-2025-06-23-at-23.15.19.png?w=2000&h=2000&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1750847626&s=211fe5c665b93a978c596f9070aed44c', details: 'People ask us why we are called Rise at Seven? Ever heard the saying Early Bird catches the worm? Google is moving fast, but humans are moving faster. We chase consumers, not algorithms. We’ve created a service which takes ideas to result within 60 minutes.', rotation: 5 },
+    { id: 3, title: 'Visionaries', color: '#FFFFFF', image: 'https://rise-atseven.transforms.svdcdn.com/production/images/Screenshot-2025-06-23-at-23.15.19.png?w=2000&h=2000&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1750847626&s=211fe5c665b93a978c596f9070aed44c', details: 'People ask us why we are called Rise at Seven? Ever heard the saying Early Bird catches the worm? Google is moving fast, but humans are moving faster. We chase consumers, not algorithms. Weâ€™ve created a service which takes ideas to result within 60 minutes.', rotation: 5 },
 ];
 
 const extendedCards = [...cardsData, ...cardsData, ...cardsData];
@@ -99,7 +99,6 @@ const StackedCards = () => {
                         {extendedCards.map((card, index) => (
                             <div
                                 key={`${card.id}-${index}`}
-                                // Small: 100% width, Medium: 80% width (যাতে ১.৫টি কার্ড দেখা যায়)
                                 className="snap-center shrink-0 flex justify-center px-2 w-[100vw] md:w-[65vw]"                            >
                                 <div
                                     style={{ backgroundColor: card.color }}
@@ -113,7 +112,7 @@ const StackedCards = () => {
                             </div>
                         ))}
                     </div>
-                    {/* Progress Bar */}
+                    {}
                     <div className="max-w-[150px] md:max-w-[200px] mx-auto h-[2px]  rounded-full mt-4 overflow-hidden relative">
                         <div
                             className="absolute left-0 top-0 h-full bg-black transition-all duration-150 ease-out"
@@ -143,8 +142,11 @@ const StackedCards = () => {
                     <div style={{ height: "300vh" }}></div>
                 </section>
             )}
+
+            
         </div>
     );
 };
 
 export default StackedCards;
+

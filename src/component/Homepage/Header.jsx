@@ -1,8 +1,8 @@
-const Header = () => {
-    const text = "🚨 They Category Leaderboard - Live Now";
+﻿const Header = () => {
+    const text = "ðŸš¨ They Category Leaderboard - Live Now";
 
     return (
-        /* এখানে relative এবং z-[200] যোগ করা হয়েছে যাতে এটি Navbanner এর উপরে থাকে */
+        
         <div className="relative z-[200] cursor-pointer">
             <div className="bg-[#B2F6E3] rounded-full overflow-hidden group">
                 <div className="relative h-9 sm:h-10 flex flex-col items-center justify-center transition-transform duration-500 ease-in-out group-hover:-translate-y-full">

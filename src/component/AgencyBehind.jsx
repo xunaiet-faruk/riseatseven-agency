@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+﻿import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 const AgencyBehind = () => {
@@ -31,12 +31,12 @@ const AgencyBehind = () => {
         <div ref={scrollRef} className="container mx-auto mb-[100px]">
             <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-10">
 
-                {/* Text */}
+                {}
                 <h1 className="shrink-0 font-normal text-[16px] text-black w-full md:w-auto text-left">
                     The agency behind.
                 </h1>
 
-                {/* Logo Section */}
+                {}
                 <div className="relative w-full flex-1 overflow-hidden py-2 md:ml-0">
 
                     
@@ -44,12 +44,12 @@ const AgencyBehind = () => {
     bg-gradient-to-r from-black/30 via-white/30 to-transparent">
                     </div>
 
-                    {/* ✅ Left Blur - Medium Device (no color, only blur) */}
+                    {}
                     <div className="hidden md:block  pointer-events-none absolute top-0 left-0 h-full w-[25px] z-20 
     bg-[#EFEEEC]/30 backdrop-blur-sm">
                     </div>
 
-                    {/* Right Gradient (unchanged সব device এ থাকবে) */}
+                    {}
                     <div className="pointer-events-none absolute top-0 right-0 h-full w-[25px] z-20 
                         bg-gradient-to-l from-black/30 via-white/30 to-transparent">
                     </div>
