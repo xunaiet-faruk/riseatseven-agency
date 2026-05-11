@@ -6,7 +6,7 @@ const BlogResourcesCard = () => {
         <div>
                <div className="p-4">
                         {}
-                        <div className="bg-white group relative w-full max-w-[560px] h-[230px] rounded-[2rem] p-4 flex items-center justify-between shadow-sm border border-gray-50 overflow-hidden transition-all duration-500 hover:shadow-xl">
+                        <div className="bg-white group relative w-full max-w-[530px] h-[230px] rounded-[2rem] p-4 flex items-center justify-between shadow-sm border border-gray-50 overflow-hidden transition-all duration-500 hover:shadow-xl">
             
                             {}
                             <div className="flex-1 flex flex-col items-center justify-center  px-4">
