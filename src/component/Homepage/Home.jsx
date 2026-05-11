@@ -13,10 +13,10 @@ import Header from './Header';
 const Home = () => {
     return (
         <div className='container mx-auto'>
-            {/* <Header/>
+            <Header/>
             <Navbanner/>
             <AgencyBehind/>
-            <DrivingDemand/> */}
+            <DrivingDemand/>
             <FeaturedWork />
             <Ourservices/>
             <CreativeSection/>
@@ -24,6 +24,7 @@ const Home = () => {
             <WhatsNew/>
             <ReadytoRise/>
             <Footer/>
+           
         </div>
     );
 };

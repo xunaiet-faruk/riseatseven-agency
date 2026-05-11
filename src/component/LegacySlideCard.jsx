@@ -89,7 +89,7 @@ const StackedCards = () => {
             </div>
 
             {!isLarge ? (
-                <section className="relative w-full py-10">
+                <section className="relative w-full py-5 md:py-10"> 
                     <div
                         ref={scrollRef}
                         onScroll={handleScroll}
@@ -100,13 +100,12 @@ const StackedCards = () => {
                             <div
                                 key={`${card.id}-${index}`}
                                 // Small: 100% width, Medium: 80% width (যাতে ১.৫টি কার্ড দেখা যায়)
-                                className="snap-center shrink-0 flex justify-center px-2 w-[100vw] md:w-[80vw]"
-                            >
+                                className="snap-center shrink-0 flex justify-center px-2 w-[100vw] md:w-[65vw]"                            >
                                 <div
                                     style={{ backgroundColor: card.color }}
-                                    className={`w-[90%] md:w-full h-[550px] md:h-[650px] rounded-[40px] shadow-2xl p-10 flex flex-col items-center border border-white/10 ${card.color === '#000000' ? 'text-white' : 'text-black'}`}
+                                    className={`w-[90%] md:w-full h-[475px] md:h-[650px] rounded-[40px] shadow-2xl p-10 flex flex-col items-center border border-white/10 ${card.color === '#000000' ? 'text-white' : 'text-black'}`}
                                 >
-                                    <img className='w-[160px] md:w-[220px] rounded-2xl mb-6' src={card.image} alt={card.title} />
+                                    <img className='w-[180px] md:w-[270px] rounded-2xl mb-6' src={card.image} alt={card.title} />
                                     <h2 className="text-[40px] md:text-[55px] font-500 mb-4 tracking-tighter text-center leading-none">{card.title}</h2>
                                     <p className="font-500 text-center text-sm md:text-[16px] opacity-90">{card.details}</p>
                                     {card.details2 && <p className="pt-4 md:pt-6 font-500 text-center text-sm md:text-[16px] opacity-90">{card.details2}</p>}
@@ -115,7 +114,7 @@ const StackedCards = () => {
                         ))}
                     </div>
                     {/* Progress Bar */}
-                    <div className="max-w-[150px] md:max-w-[200px] mx-auto h-[2px] bg-gray-200 rounded-full mt-4 overflow-hidden relative">
+                    <div className="max-w-[150px] md:max-w-[200px] mx-auto h-[2px]  rounded-full mt-4 overflow-hidden relative">
                         <div
                             className="absolute left-0 top-0 h-full bg-black transition-all duration-150 ease-out"
                             style={{ width: `${progress}%` }}
@@ -124,8 +123,8 @@ const StackedCards = () => {
                 </section>
             ) : (
                 <section className="relative w-full">
-                    <div ref={containerRef} className="relative w-full h-screen overflow-hidden flex flex-col items-center">
-                        <div className="relative w-full h-full flex items-center justify-center -mt-12">
+                    <div ref={containerRef} className="relative w-full h-screen  overflow-hidden flex flex-col items-center">
+                        <div className="relative w-full h-full flex items-center justify-center -mt-5">
                             {cardsData.map((card, index) => (
                                 <div
                                     key={card.id}

@@ -86,7 +86,7 @@ const Footer = () => {
                         <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
                         <a href="#" className="hover:text-white transition-colors">Terms of Condition</a>
                     </div>
-                    <div className="tracking-widest text-white">Website MadeByShape</div>
+                    <div className="tracking-widest text-white ">Website MadeByShape</div>
                 </div>
             </div>
         </footer>

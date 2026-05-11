@@ -7,6 +7,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Projects data (Unchanged)
 const projects = [
     { id: 1, title: "SIXT", year: "2023-2025", image: "https://rise-atseven.transforms.svdcdn.com/production/images/Logos/Client/Black/sixt-1.jpg?w=2000&h=1500&q=90&auto=format&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1750847611&s=4fc6345587184c87793709b9ccab3b72", color: "bg-[#CB7B3A]", desc: "An extra 3m clicks regionally through SEO.", bottomTag: "Car rental" },
     { id: 2, title: "Dojo - B2B", year: "2021-2025", image: "https://rise-atseven.transforms.svdcdn.com/production/images/dojo-go-product-shot-1.jpg?w=2000&h=1500&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1750847714&s=dd63f860a1924655216d5eb62cf5e592", color: "bg-[#FDD8C4]", desc: "A B2B success story for Dojo card machines", bottomTag: "Card Machines" },
@@ -30,30 +31,38 @@ const FeaturedWork = () => {
     const [hoveredId, setHoveredId] = useState(null);
     const [isOverCard, setIsOverCard] = useState(false);
 
-    // Custom Cursor logic - only works on Large devices
+    // Optimized Custom Cursor logic
     useEffect(() => {
-        if (window.innerWidth < 1024) return; // Disable cursor logic for small/medium
-        if (!cursorRef.current) return;
+        if (window.innerWidth < 1024 || !cursorRef.current) return;
 
+        // Mouse Move Handler inside useEffect to ensure it only runs when needed
+        const xSetter = gsap.quickSetter(cursorRef.current, "x", "px");
+        const ySetter = gsap.quickSetter(cursorRef.current, "y", "px");
+
+        const handleMouseMove = (e) => {
+            xSetter(e.clientX);
+            ySetter(e.clientY);
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+
+        // Visibility Toggle
         if (isOverCard) {
             document.body.style.cursor = 'none';
-            gsap.to(cursorRef.current, { scale: 1, opacity: 1, duration: 0.3 });
+            gsap.to(cursorRef.current, { scale: 1, opacity: 1, visibility: 'visible', duration: 0.3, ease: "power2.out" });
         } else {
             document.body.style.cursor = 'auto';
-            gsap.to(cursorRef.current, { scale: 0, opacity: 0, duration: 0.2 });
+            gsap.to(cursorRef.current, {
+                scale: 0, opacity: 0, duration: 0.2, ease: "power2.in", onComplete: () => {
+                    gsap.set(cursorRef.current, { visibility: 'hidden' });
+                }
+            });
         }
+
+        return () => window.removeEventListener('mousemove', handleMouseMove);
     }, [isOverCard]);
 
-    useEffect(() => {
-        const handleMouseMove = (e) => {
-            if (cursorRef.current && window.innerWidth >= 1024) {
-                gsap.set(cursorRef.current, { x: e.clientX, y: e.clientY });
-            }
-        };
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
-    }, []);
-
+    // Scroll Animation (Unchanged)
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
             const imageHeight = imageScrollRef.current.scrollHeight;
@@ -87,10 +96,19 @@ const FeaturedWork = () => {
     return (
         <div className="px-4 md:px-5 lg:px-0">
             <div ref={containerRef} className="bg-black text-white relative rounded-3xl overflow-hidden md:px-5 lg:px-0 px-5">
-                {/* Custom Cursor - Hidden on small/medium */}
+
+                {/* Custom Cursor - Fixed styling and initial state */}
                 <div
                     ref={cursorRef}
-                    style={{ position: 'fixed', top: 0, left: 0, zIndex: 9999, pointerEvents: 'none', xPercent: -50, yPercent: -50, opacity: 0, scale: 0 }}
+                    style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        zIndex: 9999,
+                        pointerEvents: 'none',
+                        visibility: 'hidden',
+                        transform: 'translate(-50%, -50%)' // Manual centering
+                    }}
                     className="hidden lg:flex items-center justify-center w-32 h-32 rounded-full bg-[#B2F6E3] text-black shadow-2xl"
                 >
                     <MdOutlineArrowOutward className="text-4xl font-bold" />
@@ -99,7 +117,7 @@ const FeaturedWork = () => {
                 <section ref={sectionRef} className="lg:h-[750px] md:h-[750px] h-[630px] flex items-center overflow-hidden relative">
                     <div className="container mx-auto flex h-full items-start pt-8 lg:gap-12 lg:px-8">
 
-                        {/* Left Side List - Large screen only */}
+                        {/* Left Side List */}
                         <div className="w-1/2 hidden lg:block">
                             <p className="text-[22px] font-medium text-white mb-6 pt-32">Featured Work</p>
                             <div className="relative h-[450px] overflow-hidden border-l border-zinc-900">
@@ -138,7 +156,7 @@ const FeaturedWork = () => {
                                                 ${hoveredId === item.id ? 'lg:scale-105' : 'scale-100'}`}
                                         />
 
-                                        {/* Title and Year - Medium and Small Devices (Top Left Corner) */}
+                                        {/* Mobile Title View */}
                                         <div className="absolute bottom-0 left-1 z-30 lg:hidden">
                                             <div className="rounded-lg px-4 py-2">
                                                 <p className="text-white/80 text-xs md:text-[12px] font-semibold">{item.year}</p>
@@ -146,14 +164,12 @@ const FeaturedWork = () => {
                                             </div>
                                         </div>
 
-                                        {/* Color Overlay Logic - Large devices only */}
+                                        {/* Color Overlay Logic */}
                                         <div
                                             className={`absolute lg:block hidden inset-0 z-10 ${item.color} transition-all duration-700 ease-in-out p-8 md:p-12
                                                 ${hoveredId === item.id ? 'opacity-100' : 'opacity-0 lg:opacity-0'}`}
                                             style={{
-                                                clipPath: window.innerWidth >= 1024
-                                                    ? (hoveredId === item.id ? 'circle(150% at 50% 100%)' : 'circle(0% at 50% 100%)')
-                                                    : 'none'
+                                                clipPath: (hoveredId === item.id ? 'circle(150% at 50% 100%)' : 'circle(0% at 50% 100%)')
                                             }}
                                         >
                                             <div className={`w-full text-left transition-all duration-500 ${hoveredId === item.id ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
@@ -163,19 +179,12 @@ const FeaturedWork = () => {
                                             </div>
                                         </div>
 
-                                        {/* Bottom Tags - Small & Medium: Top Right, Large: Bottom Right */}
+                                        {/* Bottom Tags */}
                                         {item.id !== 3 && (
                                             <div className="absolute top-4 right-4 md:top-6 md:right-6 lg:bottom-6 lg:right-6 lg:top-auto z-20">
-                                                <div className="flex items-center gap-2 md:gap-3 px-2 py-1 md:px-6 md:py-3 rounded-full 
-                    bg-white/20 backdrop-blur-md 
-                    border border-white/30 
-                    shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] 
-                    text-white transition-all duration-300">
-
+                                                <div className="flex items-center gap-2 md:gap-3 px-2 py-1 md:px-6 md:py-3 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white">
                                                     <FaSearch className="text-xs md:text-sm shadow-sm" />
-                                                    <span className="text-[12px] md:text-[14px] font-bold tracking-tight drop-shadow-md">
-                                                        {item.bottomTag}
-                                                    </span>
+                                                    <span className="text-[12px] md:text-[14px] font-bold tracking-tight">{item.bottomTag}</span>
                                                     <LuTrendingUp className="text-md md:text-lg" />
                                                 </div>
                                             </div>
@@ -184,7 +193,6 @@ const FeaturedWork = () => {
                                 ))}
                             </div>
                         </div>
-
                     </div>
                 </section>
             </div>

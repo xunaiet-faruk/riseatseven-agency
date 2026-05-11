@@ -39,7 +39,7 @@ const AgencyBehind = () => {
                 {/* Logo Section */}
                 <div className="relative w-full flex-1 overflow-hidden py-2 md:ml-0">
 
-                    {/* ✅ Left Gradient - Small Device (color gradient) */}
+                    
                     <div className="md:hidden pointer-events-none absolute top-0 left-0 h-full w-[25px] z-20 
     bg-gradient-to-r from-black/30 via-white/30 to-transparent">
                     </div>
